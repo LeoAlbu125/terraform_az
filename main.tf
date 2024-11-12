@@ -32,10 +32,11 @@ resource "azurerm_storage_container" "example" {
 }
 
 # Create a virtual directory called "results" (simulated using blob naming convention)
+
 resource "azurerm_storage_blob" "results_directory" {
   name                    = "results/.dummy"  # This creates the 'results' folder structure.
   storage_account_name    = azurerm_storage_account.example.name
   storage_container_name  = azurerm_storage_container.example.name
   type                    = "Block"
-  content                 = ""  # This can be empty; it only needs to exist to simulate the directory.
 }
+
